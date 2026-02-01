@@ -1,0 +1,42 @@
+# Backend files (не деплоим Backend на Vercel)
+Backend/
+
+# Node modules
+node_modules/
+**/node_modules/
+
+# Build outputs
+**/dist/
+**/build/
+**/.next/
+
+# Environment files (загружаем через Vercel dashboard)
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary files
+tmp_rovodev_*
+
+# .NET files
+**/*.user
+**/bin/
+**/obj/
+**/*.cache
+**/.vs/

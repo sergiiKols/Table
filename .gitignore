@@ -1,0 +1,32 @@
+# Backend
+Backend/**/*.user
+Backend/**/bin/
+Backend/**/obj/
+Backend/**/publish/
+Backend/**/*.suo
+Backend/**/*.cache
+Backend/**/.vs/
+Backend/**/appsettings.Development.json
+Backend/**/*.log
+
+# Frontend
+Frontend/node_modules/
+Frontend/dist/
+Frontend/.vite/
+Frontend/npm-debug.log*
+Frontend/yarn-debug.log*
+Frontend/yarn-error.log*
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+tmp_rovodev_*
