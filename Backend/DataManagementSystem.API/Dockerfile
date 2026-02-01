@@ -15,9 +15,8 @@ FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS runtime
 WORKDIR /app
 COPY --from=build /app/publish .
 
-# Render предоставляет переменную PORT
-ENV ASPNETCORE_URLS=http://+:$PORT
-
-EXPOSE $PORT
+# Render использует порт 10000
+# Важно: используем переменную окружения из Render
+EXPOSE 10000
 
 ENTRYPOINT ["dotnet", "DataManagementSystem.API.dll"]
