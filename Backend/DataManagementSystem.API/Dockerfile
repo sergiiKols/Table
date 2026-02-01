@@ -15,8 +15,9 @@ FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS runtime
 WORKDIR /app
 COPY --from=build /app/publish .
 
-# Render использует порт 10000
-# Настраиваем ASP.NET Core слушать на порту из переменной PORT
-ENV ASPNETCORE_URLS=http://0.0.0.0:${PORT:-10000}
+# Копируем startup скрипт
+COPY start.sh /app/start.sh
+RUN chmod +x /app/start.sh
 
-ENTRYPOINT ["dotnet", "DataManagementSystem.API.dll"]
+# Используем shell скрипт для запуска с правильной переменной окружения
+ENTRYPOINT ["/app/start.sh"]
