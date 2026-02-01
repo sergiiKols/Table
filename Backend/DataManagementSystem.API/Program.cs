@@ -23,7 +23,11 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowReactApp",
         policy =>
         {
-            policy.WithOrigins("http://localhost:3000", "http://localhost:5173")
+            policy.WithOrigins(
+                    "http://localhost:3000", 
+                    "http://localhost:5173",
+                    "https://sergii-table.vercel.app",
+                    "https://*.vercel.app")
                   .AllowAnyHeader()
                   .AllowAnyMethod();
         });
@@ -32,11 +36,9 @@ builder.Services.AddCors(options =>
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+// Включаем Swagger для всех окружений (чтобы тестировать на Render)
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseCors("AllowReactApp");
 
