@@ -16,7 +16,7 @@ WORKDIR /app
 COPY --from=build /app/publish .
 
 # Render использует порт 10000
-# Важно: используем переменную окружения из Render
-EXPOSE 10000
+# Настраиваем ASP.NET Core слушать на порту из переменной PORT
+ENV ASPNETCORE_URLS=http://0.0.0.0:${PORT:-10000}
 
 ENTRYPOINT ["dotnet", "DataManagementSystem.API.dll"]
